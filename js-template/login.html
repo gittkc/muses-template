@@ -9,17 +9,27 @@
     ユーザー名：<input /> <button>ログイン</button>
 
     <script>
+      //Webページ読み込み完了したら以下の処理を実行する
       document.addEventListener('DOMContentLoaded', async () => {
+        //ログインしていたユーザーをデータから削除
         delete sessionStorage.username;
+        //inputの値を設定
         document.querySelector('input').value = '武庫川　花子';
       });
 
+      //ボタンがクリックされたとき以下の処理を実行する
       document.querySelector('button').addEventListener('click', () => {
+        //inputに入力された値を取得
         const username = document.querySelector('input').value;
+        //inputが空欄の場合
         if (!username) {
+          //ウィンドウアラート表示
           window.alert('ユーザー名を入力してください');
         } else {
+          //inputに入力があった場合
+          //ログインユーザーのデータを保存
           sessionStorage.username = username;
+          //index画面へ遷移
           location.href = 'index.html';
         }
       });
